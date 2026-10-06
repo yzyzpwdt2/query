@@ -197,13 +197,17 @@ body {
 
 .user-bar {
 
+  position: relative;
+
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
 
-  gap: 12px;
+  width: 100%;
+
+  min-height: 34px;
 
   margin-bottom: 8px;
 
@@ -237,6 +241,8 @@ body {
 
 
 .logout-btn {
+
+  flex-shrink: 0;
 
   border:
     1px solid #d6dbe3;
@@ -689,7 +695,12 @@ footer {
 
   .user-bar {
 
+    min-height: 32px;
+
     margin-bottom: 4px;
+
+    padding:
+      0 2px;
   }
 
 
