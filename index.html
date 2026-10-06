@@ -1,32 +1,63 @@
 <!doctype html>
 <html lang="zh-Hant">
+
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0f172a">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0f172a"
+  >
+
   <title>HL-IOT 電路編號查詢</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
   <main class="app">
 
+
     <!-- ========================= -->
     <!-- 員編登入 -->
     <!-- ========================= -->
 
-    <section id="loginCard" class="login-card">
+    <section
+      id="loginCard"
+      class="login-card"
+    >
 
-      <div class="badge">HL-IOT</div>
+      <div class="badge">
+        HL-IOT
+      </div>
 
-      <h1>員編登入</h1>
+
+      <h1>
+        員編登入
+      </h1>
+
 
       <p>
         請輸入公司員編後開始查詢門市資料
       </p>
 
-      <label for="employeeId">員編</label>
+
+      <label for="employeeId">
+        員編
+      </label>
+
 
       <input
         id="employeeId"
@@ -36,9 +67,14 @@
         aria-label="員編"
       >
 
-      <button id="loginBtn" type="button">
+
+      <button
+        id="loginBtn"
+        type="button"
+      >
         登入
       </button>
+
 
       <div
         id="loginStatus"
@@ -49,17 +85,63 @@
     </section>
 
 
+
     <!-- ========================= -->
     <!-- 門市查詢系統 -->
     <!-- ========================= -->
 
-    <section id="queryApp" class="hidden">
+    <section
+      id="queryApp"
+      class="hidden"
+    >
+
+
+      <!-- ========================= -->
+      <!-- 使用者資訊 -->
+      <!-- ========================= -->
+
+      <div class="user-bar">
+
+        <div class="user-info">
+
+          <span>
+            員編
+          </span>
+
+          <strong id="currentEmployeeId">
+            -
+          </strong>
+
+        </div>
+
+
+        <button
+          id="logoutBtn"
+          type="button"
+          class="logout-btn"
+        >
+          登出
+        </button>
+
+      </div>
+
+
+
+      <!-- ========================= -->
+      <!-- 系統標題 -->
+      <!-- ========================= -->
 
       <section class="hero">
 
-        <div class="badge">HL-IOT</div>
+        <div class="badge">
+          HL-IOT
+        </div>
 
-        <h1>電路編號查詢</h1>
+
+        <h1>
+          電路編號查詢
+        </h1>
+
 
         <p>
           輸入店號，查詢門市電話與電路編號
@@ -68,13 +150,17 @@
       </section>
 
 
+
+      <!-- ========================= -->
       <!-- 查詢區 -->
+      <!-- ========================= -->
 
       <section class="search-card">
 
         <label for="storeId">
           店號
         </label>
+
 
         <div class="search-row">
 
@@ -86,6 +172,7 @@
             aria-label="店號"
           >
 
+
           <button
             id="searchBtn"
             type="button"
@@ -94,6 +181,7 @@
           </button>
 
         </div>
+
 
         <div
           id="status"
@@ -104,7 +192,10 @@
       </section>
 
 
+
+      <!-- ========================= -->
       <!-- 查詢結果 -->
+      <!-- ========================= -->
 
       <section
         id="result"
@@ -119,7 +210,9 @@
 
         <div class="field">
 
-          <span>店號</span>
+          <span>
+            店號
+          </span>
 
           <strong id="rStoreId">
             -
@@ -130,7 +223,9 @@
 
         <div class="field store-name">
 
-          <span>店名</span>
+          <span>
+            店名
+          </span>
 
           <strong id="rStoreName">
             -
@@ -141,7 +236,9 @@
 
         <div class="field">
 
-          <span>電話號碼</span>
+          <span>
+            電話號碼
+          </span>
 
           <a
             id="rPhone"
@@ -168,7 +265,10 @@
       </section>
 
 
+
+      <!-- ========================= -->
       <!-- 查無資料 -->
+      <!-- ========================= -->
 
       <section
         id="notFound"
@@ -179,15 +279,18 @@
           ?
         </div>
 
+
         <strong>
           查無此店號
         </strong>
+
 
         <p>
           請確認店號是否輸入正確。
         </p>
 
       </section>
+
 
 
       <footer>
@@ -198,7 +301,10 @@
 
   </main>
 
+
+
   <script src="script.js"></script>
 
 </body>
+
 </html>
