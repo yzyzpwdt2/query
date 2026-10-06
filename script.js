@@ -192,8 +192,10 @@ async function search() {
 
   } catch (e) {
 
+    console.error("SEARCH_ERROR:", e);
+    
     statusEl.textContent =
-      "目前無法連線查詢，請稍後再試。";
+      "查詢發生錯誤，請看 F12 Console。";
 
   } finally {
 
