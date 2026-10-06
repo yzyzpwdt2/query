@@ -2,9 +2,7 @@
   box-sizing: border-box;
 }
 
-
 :root {
-
   font-family:
     system-ui,
     -apple-system,
@@ -13,628 +11,672 @@
     sans-serif;
 
   color: #172033;
+  background: #f2f4f7;
 
-  background: #f3f5f8;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+html {
+  min-height: 100%;
+  background: #f2f4f7;
+}
 
 body {
-
   margin: 0;
-
   min-height: 100vh;
+  background:
+    linear-gradient(
+      180deg,
+      #f7f8fa 0%,
+      #f2f4f7 100%
+    );
 }
 
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .app {
-
-  width:
-    min(100%, 560px);
-
+  width: min(100%, 560px);
   margin: auto;
-
-  padding:
-    24px 16px 32px;
+  padding: 20px 16px 36px;
 }
-
-
 
 /* =========================
    共用
    ========================= */
 
+.hidden {
+  display: none !important;
+}
+
 .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  display: inline-block;
-
-  background: #0f172a;
-
+  background: #111827;
   color: #fff;
 
   border-radius: 999px;
 
-  padding:
-    6px 12px;
+  padding: 6px 13px;
 
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 1;
 
-  font-weight: 700;
-
-  letter-spacing: .08em;
+  font-weight: 750;
+  letter-spacing: .07em;
 }
-
-
-.hidden {
-
-  display: none !important;
-}
-
-
 
 /* =========================
    登入
    ========================= */
 
 .login-card {
+  background: rgba(255, 255, 255, .96);
 
-  background: #fff;
+  border: 1px solid rgba(226, 230, 236, .9);
 
-  border-radius: 20px;
+  border-radius: 24px;
 
-  padding:
-    28px 20px;
+  padding: 30px 22px;
 
-  margin-top: 15vh;
+  margin-top: 11vh;
 
   box-shadow:
-    0 8px 28px
-    rgba(15, 23, 42, .08);
+    0 12px 35px rgba(15, 23, 42, .08),
+    0 2px 8px rgba(15, 23, 42, .03);
 }
-
 
 .login-card h1 {
-
-  font-size: 28px;
-
+  font-size: 29px;
   line-height: 1.2;
 
-  margin:
-    16px 0 8px;
+  margin: 17px 0 8px;
+
+  letter-spacing: -.02em;
 }
 
-
 .login-card p {
+  margin: 0 0 26px;
 
-  margin:
-    0 0 24px;
-
-  color: #687386;
+  color: #727c8d;
 
   font-size: 15px;
-
   line-height: 1.6;
 }
 
-
 .login-card label {
-
   display: block;
 
   font-size: 14px;
-
   font-weight: 700;
 
   margin-bottom: 8px;
+
+  color: #30394a;
 }
 
-
 .login-card input {
-
   width: 100%;
-
-  height: 54px;
+  height: 56px;
 
   border:
-    1px solid #d6dbe3;
+    1px solid #d8dde5;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
-  padding:
-    0 15px;
+  padding: 0 16px;
+
+  background: #fff;
+
+  color: #172033;
 
   font-size: 18px;
 
   outline: none;
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
+.login-card input::placeholder {
+  color: #a0a8b5;
+}
 
 .login-card input:focus {
-
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 3px
-    rgba(37, 99, 235, .12);
+    0 0 0 4px
+    rgba(37, 99, 235, .10);
 }
 
-
 .login-card button {
-
   width: 100%;
-
-  height: 52px;
+  height: 54px;
 
   margin-top: 14px;
 
   border: 0;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
   background: #2563eb;
-
   color: #fff;
 
-  font-weight: 700;
-
   font-size: 17px;
+  font-weight: 750;
 
   cursor: pointer;
+
+  box-shadow:
+    0 5px 12px
+    rgba(37, 99, 235, .18);
+
+  transition:
+    transform .12s ease,
+    background .18s ease;
 }
 
+.login-card button:active {
+  transform: scale(.99);
+}
+
+.login-card button:hover {
+  background: #1d4ed8;
+}
 
 .login-card button:disabled {
-
   opacity: .6;
-
   cursor: not-allowed;
 }
 
+#loginStatus {
+  min-height: 22px;
 
+  margin-top: 10px;
+
+  color: #687386;
+
+  font-size: 13px;
+}
 
 /* =========================
    使用者資訊
    ========================= */
 
 .user-bar {
-
-  position: relative;
-
   display: flex;
 
   align-items: center;
-
   justify-content: flex-end;
 
   width: 100%;
 
   min-height: 34px;
 
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 
-  padding:
-    2px 4px;
+  padding: 0 2px;
 }
 
-
 .user-info {
-
   display: flex;
 
   align-items: center;
 
-  gap: 6px;
-
-  margin-left: 0;
-
-  margin-right: 20px;
+  margin-right: 12px;
 
   color: #687386;
 
   font-size: 13px;
 }
 
-
 .user-info strong {
-
   color: #172033;
 
   font-size: 14px;
-
-  font-weight: 700;
+  font-weight: 750;
 }
 
-
 .logout-btn {
-
   flex-shrink: 0;
 
   border:
-    1px solid #d6dbe3;
+    1px solid #d9dee6;
 
-  background: #fff;
+  background: rgba(255, 255, 255, .9);
 
-  color: #687386;
+  color: #5e6878;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
-  padding:
-    7px 12px;
+  padding: 7px 12px;
 
   font-size: 13px;
-
-  font-weight: 600;
+  font-weight: 650;
 
   cursor: pointer;
-}
 
+  transition:
+    background .18s ease,
+    border-color .18s ease;
+}
 
 .logout-btn:hover {
-
-  background: #f8fafc;
+  background: #fff;
+  border-color: #cbd2dc;
 }
 
-
 .logout-btn:disabled {
-
   opacity: .6;
-
   cursor: not-allowed;
 }
 
-
-
 /* =========================
-   查詢頁面
+   查詢頁標題
    ========================= */
 
 .hero {
-
-  padding:
-    16px 4px 22px;
+  padding: 14px 3px 18px;
 }
-
 
 .hero h1 {
-
   font-size: 30px;
-
   line-height: 1.2;
 
-  margin:
-    14px 0 8px;
-}
+  margin: 10px 0 7px;
 
+  letter-spacing: -.025em;
+}
 
 .hero p {
-
   margin: 0;
 
-  color: #687386;
+  color: #727c8d;
 
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.6;
 }
-
-
 
 /* =========================
    查詢區
    ========================= */
 
-.search-card,
-.result-card,
-.not-found {
-
-  background: #fff;
-
-  border-radius: 18px;
-
-  box-shadow:
-    0 8px 28px
-    rgba(15, 23, 42, .08);
-}
-
-
 .search-card {
+  background: rgba(255, 255, 255, .97);
+
+  border:
+    1px solid rgba(226, 230, 236, .9);
+
+  border-radius: 20px;
 
   padding: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, .07),
+    0 2px 7px rgba(15, 23, 42, .025);
 }
 
-
 .search-card label {
-
   display: block;
 
-  font-size: 14px;
+  color: #30394a;
 
+  font-size: 14px;
   font-weight: 700;
 
   margin-bottom: 8px;
 }
 
-
 .search-row {
-
   display: flex;
 
-  gap: 10px;
+  gap: 9px;
 }
-
 
 .search-row input {
-
   width: 100%;
-
   min-width: 0;
 
-  height: 52px;
+  height: 53px;
 
   border:
-    1px solid #d6dbe3;
+    1px solid #d7dce4;
 
-  border-radius: 12px;
+  border-radius: 13px;
 
-  padding:
-    0 15px;
+  padding: 0 15px;
 
-  font-size: 17px;
+  background: #fff;
+
+  color: #172033;
+
+  font-size: 18px;
+  font-weight: 500;
 
   outline: none;
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
-
 .search-row input:focus {
-
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 3px
-    rgba(37, 99, 235, .12);
+    0 0 0 4px
+    rgba(37, 99, 235, .10);
 }
 
-
 .search-row button {
-
   flex-shrink: 0;
+
+  min-width: 82px;
 
   border: 0;
 
-  border-radius: 12px;
+  border-radius: 13px;
 
   background: #2563eb;
 
   color: #fff;
 
-  font-weight: 700;
-
-  padding:
-    0 20px;
-
   font-size: 16px;
+  font-weight: 750;
+
+  padding: 0 17px;
 
   cursor: pointer;
+
+  box-shadow:
+    0 5px 12px
+    rgba(37, 99, 235, .15);
+
+  transition:
+    background .18s ease,
+    transform .12s ease;
 }
 
+.search-row button:hover {
+  background: #1d4ed8;
+}
+
+.search-row button:active {
+  transform: scale(.98);
+}
 
 .search-row button:disabled {
-
   opacity: .6;
-
   cursor: not-allowed;
 }
 
-
 .status {
-
-  min-height: 22px;
+  min-height: 20px;
 
   padding-top: 8px;
 
-  color: #687386;
+  color: #7a8494;
 
   font-size: 13px;
 }
-
-
 
 /* =========================
    查詢結果
    ========================= */
 
 .result-card {
+  position: relative;
 
   margin-top: 16px;
 
-  padding: 18px;
+  background: #fff;
+
+  border:
+    1px solid #e5e8ed;
+
+  border-radius: 22px;
+
+  padding: 21px 20px 20px;
+
+  box-shadow:
+    0 13px 35px rgba(15, 23, 42, .08),
+    0 2px 8px rgba(15, 23, 42, .025);
+
+  overflow: hidden;
 }
 
+/* 頂部店號 / 店名 */
 
 .result-title {
+  margin: 0 0 16px;
+
+  color: #172033;
+
+  font-size: 23px;
+  line-height: 1.35;
 
   font-weight: 800;
 
-  font-size: 18px;
-
-  margin-bottom: 6px;
+  letter-spacing: -.025em;
 }
 
+/* =========================
+   一般資訊
+   ========================= */
 
 .field {
-
-  padding:
-    15px 0;
+  padding: 16px 0;
 
   border-bottom:
-    1px solid #edf0f4;
+    1px solid #edf0f3;
 }
-
 
 .field span,
 .circuit span {
-
   display: block;
+
+  margin-bottom: 7px;
 
   color: #7a8494;
 
   font-size: 13px;
+  line-height: 1.4;
 
-  margin-bottom: 5px;
+  font-weight: 650;
 }
-
 
 .field strong,
 .field a {
+  color: #202938;
 
-  font-size: 18px;
+  font-size: 19px;
+  line-height: 1.45;
 
-  color: #172033;
+  font-weight: 650;
 
   text-decoration: none;
 }
-
-
 
 /* =========================
    店名
    ========================= */
 
 .field.store-name {
+  margin-top: 2px;
 
-  background: #f8fafc;
+  padding: 16px 17px;
 
-  border-radius: 14px;
-
-  padding: 16px;
-
-  margin-top: 8px;
+  background: #f7f9fb;
 
   border:
-    1px solid #e5e7eb;
+    1px solid #e8ebef;
+
+  border-radius: 15px;
 }
 
+.field.store-name span {
+  margin-bottom: 5px;
+
+  color: #7b8594;
+}
 
 .field.store-name strong {
-
   display: block;
 
-  font-size: 25px;
+  color: #172033;
 
-  line-height: 1.35;
+  font-size: 24px;
+  line-height: 1.4;
+
+  font-weight: 800;
+
+  letter-spacing: -.02em;
 }
-
-
 
 /* =========================
    電話
    ========================= */
 
 .field a {
-
   color: #2563eb;
+
+  font-weight: 700;
 }
 
-
+.field a:active {
+  opacity: .7;
+}
 
 /* =========================
    電路編號
    ========================= */
 
 .circuit {
+  margin-top: 17px;
 
-  margin-top: 16px;
+  padding: 19px 17px 20px;
 
-  background: #eef4ff;
+  background:
+    linear-gradient(
+      145deg,
+      #edf4ff 0%,
+      #f4f7ff 100%
+    );
 
-  border-radius: 14px;
+  border:
+    1px solid #dbe7ff;
 
-  padding: 18px;
+  border-radius: 16px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, .8);
 }
 
+.circuit span {
+  color: #58709a;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
 
 .circuit strong {
-
   display: block;
 
-  font-size: 30px;
+  margin-top: 2px;
 
+  color: #1746a2;
+
+  font-size: 31px;
   line-height: 1.3;
-
-  word-break: break-all;
-
-  color: #1d4ed8;
 
   font-weight: 850;
 
-  letter-spacing: .02em;
+  letter-spacing: .025em;
+
+  word-break: break-all;
 }
-
-
 
 /* =========================
    查無資料
    ========================= */
 
 .not-found {
-
   margin-top: 16px;
+
+  padding: 30px 18px;
+
+  background: #fff;
+
+  border:
+    1px solid #e5e8ed;
+
+  border-radius: 20px;
 
   text-align: center;
 
-  padding:
-    28px 18px;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, .06);
 }
 
-
 .not-found .icon {
-
-  width: 42px;
-
-  height: 42px;
-
-  border-radius: 50%;
-
-  background: #fff3cd;
-
-  color: #9a6700;
-
   display: grid;
 
   place-items: center;
 
-  margin:
-    0 auto 10px;
+  width: 44px;
+  height: 44px;
+
+  margin: 0 auto 11px;
+
+  border-radius: 50%;
+
+  background: #fff4cf;
+
+  color: #966d00;
 
   font-weight: 800;
 }
 
-
 .not-found p {
-
-  margin:
-    6px 0 0;
+  margin: 6px 0 0;
 
   color: #687386;
 
   font-size: 14px;
+
+  line-height: 1.6;
 }
-
-
 
 /* =========================
    Footer
    ========================= */
 
 footer {
+  padding-top: 25px;
 
-  text-align: center;
-
-  color: #9aa3b1;
+  color: #a0a8b4;
 
   font-size: 12px;
 
-  padding-top: 24px;
+  text-align: center;
 }
-
-
 
 /* =========================
    手機版
@@ -643,87 +685,160 @@ footer {
 @media (max-width: 420px) {
 
   .app {
-
     padding:
-      18px
-      12px
+      15px
+      11px
       28px;
   }
 
-
   .login-card {
-
-    margin-top: 10vh;
+    margin-top: 8vh;
 
     padding:
-      24px 18px;
-  }
+      25px 18px;
 
+    border-radius: 22px;
+  }
 
   .login-card h1 {
-
     font-size: 27px;
   }
 
-
-  .hero h1 {
-
-    font-size: 27px;
+  .login-card p {
+    margin-bottom: 23px;
   }
-
-
-  .search-row {
-
-    gap: 8px;
-  }
-
-
-  .search-row button {
-
-    padding:
-      0 16px;
-  }
-
-
-  .field.store-name strong {
-
-    font-size: 24px;
-  }
-
-
-  .circuit strong {
-
-    font-size: 27px;
-  }
-
 
   .user-bar {
-
     min-height: 32px;
 
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 
-    padding:
-      0 2px;
-
-    justify-content: flex-end;
+    padding: 0 2px;
   }
 
-
   .user-info {
-
-    margin-left: 0;
-
     margin-right: 10px;
   }
 
-
   .logout-btn {
-
     padding:
       6px 10px;
 
     font-size: 12px;
   }
 
+  .hero {
+    padding:
+      11px 3px 15px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .search-card {
+    padding: 16px;
+
+    border-radius: 18px;
+  }
+
+  .search-row {
+    gap: 8px;
+  }
+
+  .search-row input {
+    height: 51px;
+
+    font-size: 17px;
+  }
+
+  .search-row button {
+    min-width: 76px;
+
+    padding:
+      0 14px;
+
+    font-size: 15px;
+  }
+
+  .result-card {
+    margin-top: 14px;
+
+    padding:
+      18px 16px 17px;
+
+    border-radius: 20px;
+  }
+
+  .result-title {
+    font-size: 22px;
+
+    margin-bottom: 14px;
+  }
+
+  .field {
+    padding:
+      15px 0;
+  }
+
+  .field.store-name {
+    padding:
+      15px;
+  }
+
+  .field.store-name strong {
+    font-size: 23px;
+  }
+
+  .field strong,
+  .field a {
+    font-size: 18px;
+  }
+
+  .circuit {
+    margin-top: 15px;
+
+    padding:
+      18px 15px 19px;
+  }
+
+  .circuit strong {
+    font-size: 28px;
+  }
+}
+
+/* =========================
+   更小手機
+   ========================= */
+
+@media (max-width: 360px) {
+
+  .app {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .search-row button {
+    min-width: 70px;
+
+    padding:
+      0 11px;
+  }
+
+  .result-card {
+    padding:
+      17px 14px;
+  }
+
+  .field.store-name strong {
+    font-size: 21px;
+  }
+
+  .circuit strong {
+    font-size: 26px;
+  }
 }
