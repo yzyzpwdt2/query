@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>HL-IOT 電路編號查詢</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="badge">HL-IOT</div>
+      <h1>電路編號查詢</h1>
+      <p>輸入店號，查詢門市電話與電路編號</p>
+    </section>
+
+    <section class="search-card">
+      <label for="storeId">店號</label>
+      <div class="search-row">
+        <input id="storeId" inputmode="text" autocomplete="off"
+               placeholder="請輸入店號" aria-label="店號">
+        <button id="searchBtn" type="button">查詢</button>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section id="result" class="result-card hidden" aria-live="polite">
+      <div class="result-title">查詢結果</div>
+
+      <div class="field">
+        <span>店號</span>
+        <strong id="rStoreId">-</strong>
+      </div>
+
+      <div class="field store-name">
+        <span>店名</span>
+        <strong id="rStoreName">-</strong>
+      </div>
+
+      <div class="field">
+        <span>電話號碼</span>
+        <a id="rPhone" href="#">-</a>
+      </div>
+
+      <div class="circuit">
+        <span>電路編號（重要）</span>
+        <strong id="rCircuit">-</strong>
+      </div>
+    </section>
+
+    <section id="notFound" class="not-found hidden">
+      <div class="icon">?</div>
+      <strong>查無此店號</strong>
+      <p>請確認店號是否輸入正確。</p>
+    </section>
+
+    <footer>HL-IOT 查詢系統</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
