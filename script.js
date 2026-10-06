@@ -176,7 +176,7 @@ async function search() {
 
       // 電話可以直接點擊撥號
       rPhone.href =
-        `tel:${data.phone.replace(/[^0-9+#*]/g, "")}`;
+        `tel:${data.data.phone.replace(/[^0-9+#*]/g, "")}`;
 
     } else {
 
