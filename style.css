@@ -1,3 +1,9 @@
+/* =========================================================
+   HL-IOT 電路編號查詢系統
+   UI Version 3
+   只調整視覺，不修改 HTML / JS / API
+   ========================================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -6,12 +12,13 @@
   font-family:
     system-ui,
     -apple-system,
+    BlinkMacSystemFont,
     "Noto Sans TC",
     "Microsoft JhengHei",
     sans-serif;
 
-  color: #172033;
-  background: #f2f4f7;
+  color: #182235;
+  background: #f3f5f8;
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -19,17 +26,19 @@
 
 html {
   min-height: 100%;
-  background: #f2f4f7;
+  background: #f3f5f8;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+
   background:
-    linear-gradient(
-      180deg,
-      #f7f8fa 0%,
-      #f2f4f7 100%
+    radial-gradient(
+      circle at 50% -10%,
+      #ffffff 0%,
+      #f7f8fa 34%,
+      #f1f3f6 100%
     );
 }
 
@@ -46,15 +55,19 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* =========================================================
+   主容器
+   ========================================================= */
+
 .app {
   width: min(100%, 560px);
-  margin: auto;
-  padding: 20px 16px 36px;
+  margin: 0 auto;
+  padding: 18px 16px 34px;
 }
 
-/* =========================
+/* =========================================================
    共用
-   ========================= */
+   ========================================================= */
 
 .hidden {
   display: none !important;
@@ -65,81 +78,82 @@ a {
   align-items: center;
   justify-content: center;
 
-  background: #111827;
+  min-height: 27px;
+  padding: 5px 12px;
+
+  background: #182131;
   color: #fff;
 
   border-radius: 999px;
 
-  padding: 6px 13px;
-
   font-size: 12px;
   line-height: 1;
-
   font-weight: 750;
-  letter-spacing: .07em;
-}
-
-/* =========================
-   登入
-   ========================= */
-
-.login-card {
-  background: rgba(255, 255, 255, .96);
-
-  border: 1px solid rgba(226, 230, 236, .9);
-
-  border-radius: 24px;
-
-  padding: 30px 22px;
-
-  margin-top: 11vh;
+  letter-spacing: .04em;
 
   box-shadow:
-    0 12px 35px rgba(15, 23, 42, .08),
-    0 2px 8px rgba(15, 23, 42, .03);
+    0 3px 8px rgba(15, 23, 42, .12);
+}
+
+/* =========================================================
+   登入頁
+   ========================================================= */
+
+.login-card {
+  margin-top: 10vh;
+  padding: 30px 22px;
+
+  background: rgba(255, 255, 255, .96);
+
+  border: 1px solid #e4e8ee;
+  border-radius: 24px;
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, .08),
+    0 3px 10px rgba(15, 23, 42, .035);
 }
 
 .login-card h1 {
+  margin: 18px 0 8px;
+
+  color: #172033;
+
   font-size: 29px;
   line-height: 1.2;
-
-  margin: 17px 0 8px;
-
-  letter-spacing: -.02em;
+  font-weight: 800;
+  letter-spacing: -.025em;
 }
 
 .login-card p {
-  margin: 0 0 26px;
+  margin: 0 0 27px;
 
-  color: #727c8d;
+  color: #788294;
 
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .login-card label {
   display: block;
 
-  font-size: 14px;
-  font-weight: 700;
-
   margin-bottom: 8px;
 
   color: #30394a;
+
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .login-card input {
   width: 100%;
   height: 56px;
 
-  border:
-    1px solid #d8dde5;
-
-  border-radius: 14px;
-
   padding: 0 16px;
 
   background: #fff;
+
+  border: 1px solid #d7dde6;
+  border-radius: 14px;
 
   color: #172033;
 
@@ -160,8 +174,7 @@ a {
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 4px
-    rgba(37, 99, 235, .10);
+    0 0 0 4px rgba(37, 99, 235, .10);
 }
 
 .login-card button {
@@ -171,7 +184,6 @@ a {
   margin-top: 14px;
 
   border: 0;
-
   border-radius: 14px;
 
   background: #2563eb;
@@ -183,20 +195,19 @@ a {
   cursor: pointer;
 
   box-shadow:
-    0 5px 12px
-    rgba(37, 99, 235, .18);
+    0 7px 16px rgba(37, 99, 235, .20);
 
   transition:
-    transform .12s ease,
-    background .18s ease;
-}
-
-.login-card button:active {
-  transform: scale(.99);
+    background .18s ease,
+    transform .12s ease;
 }
 
 .login-card button:hover {
   background: #1d4ed8;
+}
+
+.login-card button:active {
+  transform: scale(.985);
 }
 
 .login-card button:disabled {
@@ -214,39 +225,37 @@ a {
   font-size: 13px;
 }
 
-/* =========================
-   使用者資訊
-   ========================= */
+/* =========================================================
+   使用者資訊列
+   ========================================================= */
 
 .user-bar {
   display: flex;
-
   align-items: center;
   justify-content: flex-end;
 
   width: 100%;
-
   min-height: 34px;
 
-  margin-bottom: 4px;
-
+  margin-bottom: 7px;
   padding: 0 2px;
 }
 
 .user-info {
   display: flex;
-
   align-items: center;
 
-  margin-right: 12px;
+  margin-right: 11px;
 
-  color: #687386;
+  color: #7a8494;
 
   font-size: 13px;
 }
 
 .user-info strong {
-  color: #172033;
+  margin-left: 3px;
+
+  color: #202a3a;
 
   font-size: 14px;
   font-weight: 750;
@@ -255,16 +264,14 @@ a {
 .logout-btn {
   flex-shrink: 0;
 
-  border:
-    1px solid #d9dee6;
+  padding: 7px 12px;
 
-  background: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .82);
 
-  color: #5e6878;
-
+  border: 1px solid #d9dfe7;
   border-radius: 10px;
 
-  padding: 7px 12px;
+  color: #687386;
 
   font-size: 13px;
   font-weight: 650;
@@ -286,64 +293,66 @@ a {
   cursor: not-allowed;
 }
 
-/* =========================
-   查詢頁標題
-   ========================= */
+/* =========================================================
+   首頁標題區
+   ========================================================= */
 
 .hero {
-  padding: 14px 3px 18px;
+  padding: 10px 2px 19px;
 }
 
 .hero h1 {
-  font-size: 30px;
-  line-height: 1.2;
+  margin: 10px 0 5px;
 
-  margin: 10px 0 7px;
+  color: #172033;
 
-  letter-spacing: -.025em;
+  font-size: 31px;
+  line-height: 1.18;
+  font-weight: 850;
+
+  letter-spacing: -.035em;
 }
 
 .hero p {
   margin: 0;
 
-  color: #727c8d;
+  color: #7a8494;
 
   font-size: 14px;
   line-height: 1.6;
 }
 
-/* =========================
-   查詢區
-   ========================= */
+/* =========================================================
+   搜尋區
+   ========================================================= */
 
 .search-card {
-  background: rgba(255, 255, 255, .97);
+  padding: 16px;
 
-  border:
-    1px solid rgba(226, 230, 236, .9);
+  background: rgba(255, 255, 255, .96);
 
-  border-radius: 20px;
-
-  padding: 18px;
+  border: 1px solid #e2e7ed;
+  border-radius: 19px;
 
   box-shadow:
-    0 10px 30px rgba(15, 23, 42, .07),
+    0 10px 28px rgba(15, 23, 42, .065),
     0 2px 7px rgba(15, 23, 42, .025);
 }
 
 .search-card label {
   display: block;
 
-  color: #30394a;
+  margin: 0 0 8px 2px;
 
-  font-size: 14px;
+  color: #3b4657;
+
+  font-size: 13px;
   font-weight: 700;
-
-  margin-bottom: 8px;
 }
 
 .search-row {
   display: flex;
+  align-items: stretch;
 
   gap: 9px;
 }
@@ -351,17 +360,14 @@ a {
 .search-row input {
   width: 100%;
   min-width: 0;
-
   height: 53px;
-
-  border:
-    1px solid #d7dce4;
-
-  border-radius: 13px;
 
   padding: 0 15px;
 
-  background: #fff;
+  background: #fbfcfe;
+
+  border: 1px solid #d5dce5;
+  border-radius: 13px;
 
   color: #172033;
 
@@ -371,16 +377,18 @@ a {
   outline: none;
 
   transition:
+    background .18s ease,
     border-color .18s ease,
     box-shadow .18s ease;
 }
 
 .search-row input:focus {
+  background: #fff;
+
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 4px
-    rgba(37, 99, 235, .10);
+    0 0 0 4px rgba(37, 99, 235, .10);
 }
 
 .search-row button {
@@ -388,24 +396,21 @@ a {
 
   min-width: 82px;
 
-  border: 0;
+  padding: 0 17px;
 
+  border: 0;
   border-radius: 13px;
 
   background: #2563eb;
-
   color: #fff;
 
   font-size: 16px;
   font-weight: 750;
 
-  padding: 0 17px;
-
   cursor: pointer;
 
   box-shadow:
-    0 5px 12px
-    rgba(37, 99, 235, .15);
+    0 6px 13px rgba(37, 99, 235, .18);
 
   transition:
     background .18s ease,
@@ -417,7 +422,7 @@ a {
 }
 
 .search-row button:active {
-  transform: scale(.98);
+  transform: scale(.975);
 }
 
 .search-row button:disabled {
@@ -428,105 +433,140 @@ a {
 .status {
   min-height: 20px;
 
-  padding-top: 8px;
+  padding: 7px 2px 0;
 
-  color: #7a8494;
+  color: #7d8795;
 
   font-size: 13px;
 }
 
-/* =========================
-   查詢結果
-   ========================= */
+/* =========================================================
+   查詢結果卡
+   ========================================================= */
 
 .result-card {
   position: relative;
 
-  margin-top: 16px;
+  margin-top: 15px;
+  padding: 21px 20px 20px;
 
   background: #fff;
 
-  border:
-    1px solid #e5e8ed;
-
+  border: 1px solid #e1e6ec;
   border-radius: 22px;
 
-  padding: 21px 20px 20px;
-
   box-shadow:
-    0 13px 35px rgba(15, 23, 42, .08),
-    0 2px 8px rgba(15, 23, 42, .025);
+    0 16px 38px rgba(15, 23, 42, .075),
+    0 3px 9px rgba(15, 23, 42, .025);
 
   overflow: hidden;
 }
 
-/* 頂部店號 / 店名 */
+/*
+   卡片頂端裝飾線
+*/
+
+.result-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: #2563eb;
+}
+
+/* =========================================================
+   查詢結果標題
+   ========================================================= */
 
 .result-title {
-  margin: 0 0 16px;
+  margin: 2px 0 17px;
 
-  color: #172033;
+  color: #182235;
 
   font-size: 23px;
-  line-height: 1.35;
-
-  font-weight: 800;
+  line-height: 1.3;
+  font-weight: 850;
 
   letter-spacing: -.025em;
 }
 
-/* =========================
-   一般資訊
-   ========================= */
+/* =========================================================
+   一般欄位
+   ========================================================= */
 
 .field {
-  padding: 16px 0;
+  padding: 15px 0;
 
-  border-bottom:
-    1px solid #edf0f3;
+  border-bottom: 1px solid #edf0f4;
 }
 
 .field span,
 .circuit span {
   display: block;
 
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 
-  color: #7a8494;
+  color: #7d8796;
 
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
+  font-weight: 700;
 
-  font-weight: 650;
+  letter-spacing: .02em;
 }
 
 .field strong,
 .field a {
-  color: #202938;
+  color: #202a3a;
 
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.45;
-
   font-weight: 650;
 
   text-decoration: none;
 }
 
-/* =========================
-   店名
-   ========================= */
+/* =========================================================
+   店名區
+   ========================================================= */
 
 .field.store-name {
-  margin-top: 2px;
+  position: relative;
 
-  padding: 16px 17px;
+  margin: 0 0 1px;
+  padding: 16px 17px 17px;
 
-  background: #f7f9fb;
+  background:
+    linear-gradient(
+      135deg,
+      #f7f9fc 0%,
+      #f4f6f9 100%
+    );
 
-  border:
-    1px solid #e8ebef;
-
+  border: 1px solid #e6eaf0;
   border-radius: 15px;
+}
+
+.field.store-name::before {
+  content: "";
+
+  position: absolute;
+
+  top: 15px;
+  bottom: 15px;
+  left: 0;
+
+  width: 3px;
+
+  background: #2563eb;
+
+  border-radius: 0 4px 4px 0;
 }
 
 .field.store-name span {
@@ -540,17 +580,16 @@ a {
 
   color: #172033;
 
-  font-size: 24px;
-  line-height: 1.4;
+  font-size: 25px;
+  line-height: 1.35;
+  font-weight: 850;
 
-  font-weight: 800;
-
-  letter-spacing: -.02em;
+  letter-spacing: -.025em;
 }
 
-/* =========================
+/* =========================================================
    電話
-   ========================= */
+   ========================================================= */
 
 .field a {
   color: #2563eb;
@@ -559,53 +598,72 @@ a {
 }
 
 .field a:active {
-  opacity: .7;
+  opacity: .65;
 }
 
-/* =========================
-   電路編號
-   ========================= */
+/* =========================================================
+   電路編號主卡
+   ========================================================= */
 
 .circuit {
+  position: relative;
+
   margin-top: 17px;
 
-  padding: 19px 17px 20px;
+  padding: 18px 17px 20px;
 
   background:
     linear-gradient(
-      145deg,
-      #edf4ff 0%,
-      #f4f7ff 100%
+      135deg,
+      #eef5ff 0%,
+      #e9f1ff 100%
     );
 
-  border:
-    1px solid #dbe7ff;
-
+  border: 1px solid #d4e3ff;
   border-radius: 16px;
 
   box-shadow:
-    inset 0 1px 0
-    rgba(255, 255, 255, .8);
+    inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+
+/*
+   電路編號左側識別線
+*/
+
+.circuit::before {
+  content: "";
+
+  position: absolute;
+
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+
+  width: 4px;
+
+  background: #2563eb;
+
+  border-radius: 0 5px 5px 0;
 }
 
 .circuit span {
-  color: #58709a;
+  margin-bottom: 5px;
 
-  font-size: 13px;
+  color: #56719e;
 
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 750;
 }
 
 .circuit strong {
   display: block;
 
-  margin-top: 2px;
+  margin-top: 1px;
 
-  color: #1746a2;
+  color: #1749a6;
 
   font-size: 31px;
-  line-height: 1.3;
-
+  line-height: 1.25;
   font-weight: 850;
 
   letter-spacing: .025em;
@@ -613,31 +671,27 @@ a {
   word-break: break-all;
 }
 
-/* =========================
+/* =========================================================
    查無資料
-   ========================= */
+   ========================================================= */
 
 .not-found {
-  margin-top: 16px;
-
+  margin-top: 15px;
   padding: 30px 18px;
 
   background: #fff;
 
-  border:
-    1px solid #e5e8ed;
-
+  border: 1px solid #e3e7ec;
   border-radius: 20px;
 
   text-align: center;
 
   box-shadow:
-    0 10px 30px rgba(15, 23, 42, .06);
+    0 11px 30px rgba(15, 23, 42, .06);
 }
 
 .not-found .icon {
   display: grid;
-
   place-items: center;
 
   width: 44px;
@@ -645,11 +699,11 @@ a {
 
   margin: 0 auto 11px;
 
+  background: #fff4d2;
+
   border-radius: 50%;
 
-  background: #fff4cf;
-
-  color: #966d00;
+  color: #986d00;
 
   font-weight: 800;
 }
@@ -660,64 +714,56 @@ a {
   color: #687386;
 
   font-size: 14px;
-
   line-height: 1.6;
 }
 
-/* =========================
+/* =========================================================
    Footer
-   ========================= */
+   ========================================================= */
 
 footer {
-  padding-top: 25px;
+  padding-top: 23px;
 
-  color: #a0a8b4;
+  color: #a1a9b5;
 
   font-size: 12px;
+
+  line-height: 1.5;
 
   text-align: center;
 }
 
-/* =========================
+/* =========================================================
    手機版
-   ========================= */
+   ========================================================= */
 
 @media (max-width: 420px) {
 
   .app {
     padding:
-      15px
+      14px
       11px
-      28px;
+      27px;
   }
 
-  .login-card {
-    margin-top: 8vh;
-
-    padding:
-      25px 18px;
-
-    border-radius: 22px;
-  }
-
-  .login-card h1 {
-    font-size: 27px;
-  }
-
-  .login-card p {
-    margin-bottom: 23px;
-  }
+  /* 使用者列 */
 
   .user-bar {
-    min-height: 32px;
+    min-height: 31px;
 
     margin-bottom: 3px;
 
-    padding: 0 2px;
+    padding: 0 1px;
   }
 
   .user-info {
-    margin-right: 10px;
+    margin-right: 9px;
+
+    font-size: 12px;
+  }
+
+  .user-info strong {
+    font-size: 13px;
   }
 
   .logout-btn {
@@ -725,25 +771,39 @@ footer {
       6px 10px;
 
     font-size: 12px;
+
+    border-radius: 9px;
   }
+
+  /* 標題 */
 
   .hero {
     padding:
-      11px 3px 15px;
+      9px 2px 16px;
   }
 
   .hero h1 {
-    font-size: 27px;
+    margin-top: 9px;
+
+    font-size: 28px;
   }
 
   .hero p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
+  /* 搜尋 */
+
   .search-card {
-    padding: 16px;
+    padding: 15px;
 
     border-radius: 18px;
+  }
+
+  .search-card label {
+    margin-left: 1px;
+
+    font-size: 13px;
   }
 
   .search-row {
@@ -753,7 +813,11 @@ footer {
   .search-row input {
     height: 51px;
 
+    padding: 0 14px;
+
     font-size: 17px;
+
+    border-radius: 12px;
   }
 
   .search-row button {
@@ -763,35 +827,36 @@ footer {
       0 14px;
 
     font-size: 15px;
+
+    border-radius: 12px;
   }
+
+  /* 查詢結果 */
 
   .result-card {
     margin-top: 14px;
 
     padding:
-      18px 16px 17px;
+      19px 16px 17px;
 
     border-radius: 20px;
   }
 
   .result-title {
-    font-size: 22px;
+    margin:
+      2px 0 15px;
 
-    margin-bottom: 14px;
+    font-size: 22px;
   }
 
   .field {
     padding:
-      15px 0;
+      14px 0;
   }
 
-  .field.store-name {
-    padding:
-      15px;
-  }
-
-  .field.store-name strong {
-    font-size: 23px;
+  .field span,
+  .circuit span {
+    font-size: 12px;
   }
 
   .field strong,
@@ -799,27 +864,58 @@ footer {
     font-size: 18px;
   }
 
+  /* 店名 */
+
+  .field.store-name {
+    padding:
+      15px;
+
+    border-radius: 14px;
+  }
+
+  .field.store-name strong {
+    font-size: 23px;
+  }
+
+  /* 電路 */
+
   .circuit {
     margin-top: 15px;
 
     padding:
-      18px 15px 19px;
+      17px 15px 19px;
+
+    border-radius: 15px;
   }
 
   .circuit strong {
     font-size: 28px;
   }
+
+  footer {
+    padding-top: 21px;
+
+    font-size: 11px;
+  }
 }
 
-/* =========================
-   更小手機
-   ========================= */
+/* =========================================================
+   小型手機
+   ========================================================= */
 
 @media (max-width: 360px) {
 
   .app {
     padding-left: 9px;
     padding-right: 9px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .search-card {
+    padding: 14px;
   }
 
   .search-row button {
@@ -834,8 +930,22 @@ footer {
       17px 14px;
   }
 
+  .result-title {
+    font-size: 21px;
+  }
+
+  .field.store-name {
+    padding:
+      14px;
+  }
+
   .field.store-name strong {
     font-size: 21px;
+  }
+
+  .circuit {
+    padding:
+      16px 14px 18px;
   }
 
   .circuit strong {
