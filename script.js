@@ -167,12 +167,12 @@ async function search() {
 
     const data = await res.json();
 
-    rStoreId.textContent = data.storeId || "-";
-    rStoreName.textContent = data.storeName || "-";
+    rStoreId.textContent = data.data.storeId || "-";
+    rStoreName.textContent = data.data.storeName || "-";
 
-    if (data.phone) {
+    if (data.data.phone) {
 
-      rPhone.textContent = data.phone;
+      rPhone.textContent = data.data.phone;
 
       // 電話可以直接點擊撥號
       rPhone.href =
@@ -185,7 +185,7 @@ async function search() {
 
     }
 
-    rCircuit.textContent = data.circuit || "-";
+    rCircuit.textContent = data.data.circuit || "-";
 
     result.classList.remove("hidden");
     statusEl.textContent = "";
