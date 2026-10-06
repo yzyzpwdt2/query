@@ -3,7 +3,7 @@
 
 
 const API_BASE =
-  "https://hl-iot-api.yzyzpwdt2.workers.dev";
+  "https://hl-iot-api.toshibatec.workers.dev";
 
 
 // ============================
