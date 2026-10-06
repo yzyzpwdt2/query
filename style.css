@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
+
 :root {
+
   font-family:
     system-ui,
     -apple-system,
@@ -11,43 +13,62 @@
     sans-serif;
 
   color: #172033;
+
   background: #f3f5f8;
 }
 
+
 body {
+
   margin: 0;
+
   min-height: 100vh;
 }
 
+
 .app {
-  width: min(100%, 560px);
+
+  width:
+    min(100%, 560px);
+
   margin: auto;
-  padding: 24px 16px 32px;
+
+  padding:
+    24px 16px 32px;
 }
+
+
 
 /* =========================
    共用
    ========================= */
 
 .badge {
+
   display: inline-block;
 
   background: #0f172a;
+
   color: #fff;
 
   border-radius: 999px;
 
-  padding: 6px 12px;
+  padding:
+    6px 12px;
 
   font-size: 13px;
+
   font-weight: 700;
 
   letter-spacing: .08em;
 }
 
+
 .hidden {
+
   display: none !important;
 }
+
 
 
 /* =========================
@@ -55,44 +76,60 @@ body {
    ========================= */
 
 .login-card {
+
   background: #fff;
 
   border-radius: 20px;
 
-  padding: 28px 20px;
+  padding:
+    28px 20px;
 
   margin-top: 15vh;
 
   box-shadow:
-    0 8px 28px rgba(15, 23, 42, .08);
+    0 8px 28px
+    rgba(15, 23, 42, .08);
 }
+
 
 .login-card h1 {
+
   font-size: 28px;
+
   line-height: 1.2;
 
-  margin: 16px 0 8px;
+  margin:
+    16px 0 8px;
 }
 
+
 .login-card p {
-  margin: 0 0 24px;
+
+  margin:
+    0 0 24px;
 
   color: #687386;
 
   font-size: 15px;
+
   line-height: 1.6;
 }
 
+
 .login-card label {
+
   display: block;
 
   font-size: 14px;
+
   font-weight: 700;
 
   margin-bottom: 8px;
 }
 
+
 .login-card input {
+
   width: 100%;
 
   height: 54px;
@@ -102,21 +139,27 @@ body {
 
   border-radius: 12px;
 
-  padding: 0 15px;
+  padding:
+    0 15px;
 
   font-size: 18px;
 
   outline: none;
 }
 
+
 .login-card input:focus {
+
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 3px rgba(37, 99, 235, .12);
+    0 0 0 3px
+    rgba(37, 99, 235, .12);
 }
 
+
 .login-card button {
+
   width: 100%;
 
   height: 52px;
@@ -128,6 +171,7 @@ body {
   border-radius: 12px;
 
   background: #2563eb;
+
   color: #fff;
 
   font-weight: 700;
@@ -137,11 +181,96 @@ body {
   cursor: pointer;
 }
 
+
 .login-card button:disabled {
+
   opacity: .6;
 
   cursor: not-allowed;
 }
+
+
+
+/* =========================
+   使用者資訊
+   ========================= */
+
+.user-bar {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 8px;
+
+  padding:
+    2px 4px;
+}
+
+
+.user-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #687386;
+
+  font-size: 13px;
+}
+
+
+.user-info strong {
+
+  color: #172033;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.logout-btn {
+
+  border:
+    1px solid #d6dbe3;
+
+  background: #fff;
+
+  color: #687386;
+
+  border-radius: 9px;
+
+  padding:
+    7px 12px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.logout-btn:hover {
+
+  background: #f8fafc;
+}
+
+
+.logout-btn:disabled {
+
+  opacity: .6;
+
+  cursor: not-allowed;
+}
+
 
 
 /* =========================
@@ -149,24 +278,32 @@ body {
    ========================= */
 
 .hero {
-  padding: 16px 4px 22px;
+
+  padding:
+    16px 4px 22px;
 }
 
+
 .hero h1 {
+
   font-size: 30px;
 
   line-height: 1.2;
 
-  margin: 14px 0 8px;
+  margin:
+    14px 0 8px;
 }
 
+
 .hero p {
+
   margin: 0;
 
   color: #687386;
 
   font-size: 15px;
 }
+
 
 
 /* =========================
@@ -182,31 +319,41 @@ body {
   border-radius: 18px;
 
   box-shadow:
-    0 8px 28px rgba(15, 23, 42, .08);
+    0 8px 28px
+    rgba(15, 23, 42, .08);
 }
 
+
 .search-card {
+
   padding: 18px;
 }
 
+
 .search-card label {
+
   display: block;
 
   font-size: 14px;
+
   font-weight: 700;
 
   margin-bottom: 8px;
 }
 
+
 .search-row {
+
   display: flex;
 
   gap: 10px;
 }
 
+
 .search-row input {
 
   width: 100%;
+
   min-width: 0;
 
   height: 52px;
@@ -216,20 +363,24 @@ body {
 
   border-radius: 12px;
 
-  padding: 0 15px;
+  padding:
+    0 15px;
 
   font-size: 17px;
 
   outline: none;
 }
 
+
 .search-row input:focus {
 
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 3px rgba(37, 99, 235, .12);
+    0 0 0 3px
+    rgba(37, 99, 235, .12);
 }
+
 
 .search-row button {
 
@@ -240,16 +391,19 @@ body {
   border-radius: 12px;
 
   background: #2563eb;
+
   color: #fff;
 
   font-weight: 700;
 
-  padding: 0 20px;
+  padding:
+    0 20px;
 
   font-size: 16px;
 
   cursor: pointer;
 }
+
 
 .search-row button:disabled {
 
@@ -257,6 +411,7 @@ body {
 
   cursor: not-allowed;
 }
+
 
 .status {
 
@@ -270,6 +425,7 @@ body {
 }
 
 
+
 /* =========================
    查詢結果
    ========================= */
@@ -281,6 +437,7 @@ body {
   padding: 18px;
 }
 
+
 .result-title {
 
   font-weight: 800;
@@ -290,13 +447,16 @@ body {
   margin-bottom: 6px;
 }
 
+
 .field {
 
-  padding: 15px 0;
+  padding:
+    15px 0;
 
   border-bottom:
     1px solid #edf0f4;
 }
+
 
 .field span,
 .circuit span {
@@ -310,6 +470,7 @@ body {
   margin-bottom: 5px;
 }
 
+
 .field strong,
 .field a {
 
@@ -319,6 +480,7 @@ body {
 
   text-decoration: none;
 }
+
 
 
 /* =========================
@@ -339,6 +501,7 @@ body {
     1px solid #e5e7eb;
 }
 
+
 .field.store-name strong {
 
   display: block;
@@ -349,6 +512,7 @@ body {
 }
 
 
+
 /* =========================
    電話
    ========================= */
@@ -357,6 +521,7 @@ body {
 
   color: #2563eb;
 }
+
 
 
 /* =========================
@@ -373,6 +538,7 @@ body {
 
   padding: 18px;
 }
+
 
 .circuit strong {
 
@@ -392,6 +558,7 @@ body {
 }
 
 
+
 /* =========================
    查無資料
    ========================= */
@@ -402,12 +569,15 @@ body {
 
   text-align: center;
 
-  padding: 28px 18px;
+  padding:
+    28px 18px;
 }
+
 
 .not-found .icon {
 
   width: 42px;
+
   height: 42px;
 
   border-radius: 50%;
@@ -420,19 +590,23 @@ body {
 
   place-items: center;
 
-  margin: 0 auto 10px;
+  margin:
+    0 auto 10px;
 
   font-weight: 800;
 }
 
+
 .not-found p {
 
-  margin: 6px 0 0;
+  margin:
+    6px 0 0;
 
   color: #687386;
 
   font-size: 14px;
 }
+
 
 
 /* =========================
@@ -451,6 +625,7 @@ footer {
 }
 
 
+
 /* =========================
    手機版
    ========================= */
@@ -465,6 +640,7 @@ footer {
       28px;
   }
 
+
   .login-card {
 
     margin-top: 10vh;
@@ -473,20 +649,24 @@ footer {
       24px 18px;
   }
 
+
   .login-card h1 {
 
     font-size: 27px;
   }
+
 
   .hero h1 {
 
     font-size: 27px;
   }
 
+
   .search-row {
 
     gap: 8px;
   }
+
 
   .search-row button {
 
@@ -494,13 +674,31 @@ footer {
       0 16px;
   }
 
+
   .field.store-name strong {
 
     font-size: 24px;
   }
 
+
   .circuit strong {
 
     font-size: 27px;
   }
+
+
+  .user-bar {
+
+    margin-bottom: 4px;
+  }
+
+
+  .logout-btn {
+
+    padding:
+      6px 10px;
+
+    font-size: 12px;
+  }
+
 }
